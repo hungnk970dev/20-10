@@ -1,0 +1,119 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  margin: 0;
+  background: #fff0f6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+#intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd6e0, #ffeaf0);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  z-index: 10;
+}
+
+#musicIcon {
+  font-size: 80px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+#noMusicText {
+  margin-top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 24px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ff69b4;
+  border-radius: 25px;
+  color: #d63384;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+#noMusicText:hover {
+  background-color: #ff69b4;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#soundToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.3s;
+}
+
+#soundToggle:hover {
+  transform: scale(1.15);
+  background: #ff69b4;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+#content {
+  padding: 50px 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#message {
+  transition: opacity 0.8s ease;
+}
+
+.falling-img {
+  position: fixed;
+  top: -120px;           
+  pointer-events: none;    
+  z-index: 5;
+  user-select: none;
+  opacity: 0.95;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0.95;
+  }
+}
+#soundToggle { z-index: 30; }
+.falling-img {
+  will-change: transform, opacity;
+}
+#intro { z-index: 40; }
